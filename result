@@ -1,0 +1,6 @@
+input: 60*60*3  20 categories
+
+2 conv 2 fc
+
+test accuracy: 43%
+overfit
