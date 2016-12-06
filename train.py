@@ -51,10 +51,10 @@ correct_prediction = tf.equal(tf.argmax(y_conv,1), tf.argmax(y_,1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
 
 with tf.Session() as sess:
-	with tf.device("/gpu:0"):
+	with tf.device("/cpu:0"):
 		sess.run(tf.initialize_all_variables())
 		for i in range(20000):
-  			batch = animes.next_train_batch(128)
+  			batch = animes.next_train_batch(64)
   			
 			if i%20 == 0:
 				train_accuracy = sess.run( accuracy, feed_dict={x_image:batch[0], y_: batch[1], keep_prob: 1.0})
